@@ -1,16 +1,16 @@
-﻿using Prism.Commands;
-using Prism.Mvvm;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using PatientGuidance.App.Services;
+using Prism.Navigation;
 
 namespace PatientGuidance.App.ViewModels
 {
-	public class StateContainerPageViewModel : BindableBase
+	public class StateContainerPageViewModel : ViewModelBase
 	{
-        public StateContainerPageViewModel()
-        {
+        private readonly IInstructionCardsProvider _provider;
 
+        public StateContainerPageViewModel(INavigationService navigationService, IInstructionCardsProvider provider) 
+            : base(navigationService)
+        {
+            _provider = provider;
         }
-	}
+    }
 }

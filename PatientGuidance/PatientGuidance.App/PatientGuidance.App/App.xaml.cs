@@ -34,6 +34,7 @@ namespace PatientGuidance.App
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.Register<IQuestionProvider, TempQuestionProvider>();
+            containerRegistry.Register<IInstructionCardsProvider, StaticCardsProvider>();
 
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
             containerRegistry.RegisterForNavigation<ColonoQuestionPage, ColonoQuestionPageViewModel>();
