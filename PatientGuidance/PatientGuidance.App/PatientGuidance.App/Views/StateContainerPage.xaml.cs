@@ -30,19 +30,7 @@ namespace PatientGuidance.App.Views
                 switch (c.Type)
                 {
                     case CardType.Default:
-                        Grid defaultGrid = new Grid();
-                        defaultGrid.RowDefinitions = new RowDefinitionCollection
-                        {
-                            new RowDefinition
-                            {
-                                Height = GridLength.Star
-                            },
-                            new RowDefinition
-                            {
-                                Height = GridLength.Auto
-                            }
-                        };
-                        
+                        var defaultGrid = CreateDeafultTemplate(c);
                         tabItems.Add(new SfTabItem
                         {
                             Title = c.Title,
@@ -54,6 +42,32 @@ namespace PatientGuidance.App.Views
             tabView.Items = tabItems;
             this.Content = tabView;
             
+        }
+
+        private static Grid CreateDeafultTemplate(Card c)
+        {
+            Grid defaultGrid = new Grid
+            {
+                RowDefinitions = new RowDefinitionCollection
+                {
+                    new RowDefinition {Height = GridLength.Star}, new RowDefinition {Height = GridLength.Auto}
+                }
+            };
+            var content = new Editor
+            {
+                Text = c.Content,
+                IsEnabled = false,
+                Margin = new Thickness(10)
+            };
+            var lab = new Editor
+            {
+                Text = c.SubContent,
+                IsEnabled = false,
+                Margin = new Thickness(10)
+            };
+            defaultGrid.Children.Add(content, 0, 0);
+            defaultGrid.Children.Add(lab, 0, 1);
+            return defaultGrid;
         }
     }
 }

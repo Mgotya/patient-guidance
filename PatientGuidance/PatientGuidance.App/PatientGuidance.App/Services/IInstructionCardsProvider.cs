@@ -26,7 +26,6 @@ namespace PatientGuidance.App.Services
             firstContent.AppendLine("לא");
             firstContent.AppendLine("כן-יש להפסיק לקחת שבוע לפני הבדיקה");
 
-
             var firstCard = new Card
             {
                 Title = Settings.SelectedDate.AddDays(-7).ToShortDateString(),
@@ -34,6 +33,26 @@ namespace PatientGuidance.App.Services
                 Content = firstContent.ToString(),
                 SubContent = "יש לקבוע פגישה עם רופא המשפחה למרשם תרופות הכנה (פיקולוקס)"
             };
+
+
+            var lastContent = new StringBuilder("אין לאכול עד הבדיקה עצמה");
+            lastContent.AppendLine("מותר לשתות: מים, נוזלים צלולים (מרק, מיץ דליל, תה)");
+
+            var sub = new StringBuilder("מה להביא:");
+            sub.AppendLine("להביא מלווה (אין לנהוג 12 שעות לאחר הבדיקה)");
+            sub.AppendLine("תעודה מזהה");
+            sub.AppendLine("מכתב הפניה");
+            
+            var last = new Card
+            {
+                Title = Settings.SelectedDate.ToShortDateString(),
+                Type = CardType.Default,
+                Content = lastContent.ToString(),
+                SubContent = sub.ToString()
+            };
+
+            cards.Add(firstCard);
+            cards.Add(last);
 
 
             return cards;
