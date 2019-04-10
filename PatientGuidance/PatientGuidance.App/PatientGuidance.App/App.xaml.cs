@@ -2,6 +2,7 @@
 using Prism.Ioc;
 using PatientGuidance.App.ViewModels;
 using PatientGuidance.App.Views;
+using Syncfusion.Licensing;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -21,6 +22,8 @@ namespace PatientGuidance.App
 
         protected override async void OnInitialized()
         {
+            SyncfusionLicenseProvider.RegisterLicense("NTczMjhAMzEzNjJlMzQyZTMwSWY0OVZ4V2lIMjFsdklKVzhaTmZrVURpNjdCSkVVelUxcHlaZGtZTzVCbz0=");
+
             InitializeComponent();
 
             await NavigationService.NavigateAsync("NavigationPage/MainPage");

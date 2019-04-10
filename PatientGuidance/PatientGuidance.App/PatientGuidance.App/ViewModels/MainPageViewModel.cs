@@ -10,10 +10,17 @@ namespace PatientGuidance.App.ViewModels
 {
     public class MainPageViewModel : ViewModelBase
     {
+        public DelegateCommand Excute { get; set; }
+
         public MainPageViewModel(INavigationService navigationService)
             : base(navigationService)
         {
             Title = "Main Page";
+
+            Excute = new DelegateCommand(() =>
+            {
+
+            });
         }
     }
 }
