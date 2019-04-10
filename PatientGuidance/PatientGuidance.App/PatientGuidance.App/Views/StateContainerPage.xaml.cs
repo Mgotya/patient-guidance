@@ -1,4 +1,5 @@
-﻿using PatientGuidance.App.ViewModels;
+﻿using PatientGuidance.App.Common;
+using PatientGuidance.App.ViewModels;
 using Syncfusion.XForms.TabView;
 using Xamarin.Forms;
 
@@ -6,12 +7,16 @@ namespace PatientGuidance.App.Views
 {
     public partial class StateContainerPage : ContentPage
     {
+
+        private StateContainerPageViewModel _ctx;
+
         public StateContainerPage()
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
             if (BindingContext is StateContainerPageViewModel ctx)
             {
+                _ctx = ctx;
                 ctx.OnReady = Loaded;
             }
         }
@@ -19,29 +24,36 @@ namespace PatientGuidance.App.Views
         private void Loaded()
         {
             var tabView = new SfTabView();
-            Grid allContactsGrid = new Grid { BackgroundColor = Color.Red };
-            Grid favoritesGrid = new Grid { BackgroundColor = Color.Green };
-            Grid contactsGrid = new Grid { BackgroundColor = Color.Blue };
-            var tabItems = new TabItemCollection
+            var tabItems = new TabItemCollection();
+            foreach (var c in _ctx.Cards)
             {
-                new SfTabItem()
+                switch (c.Type)
                 {
-                    Title = "Calls",
-                    Content = allContactsGrid
-                },
-                new SfTabItem()
-                {
-                    Title = "Favorites",
-                    Content = favoritesGrid
-                },
-                new SfTabItem()
-                {
-                    Title = "Contacts",
-                    Content = contactsGrid
+                    case CardType.Default:
+                        Grid defaultGrid = new Grid();
+                        defaultGrid.RowDefinitions = new RowDefinitionCollection
+                        {
+                            new RowDefinition
+                            {
+                                Height = GridLength.Star
+                            },
+                            new RowDefinition
+                            {
+                                Height = GridLength.Auto
+                            }
+                        };
+                        var contet
+                        tabItems.Add(new SfTabItem
+                        {
+                            Title = c.Title,
+                            Content = defaultGrid
+                        });
+                        break;
                 }
-            };
+            }
             tabView.Items = tabItems;
             this.Content = tabView;
+            
         }
     }
 }
