@@ -31,10 +31,9 @@ namespace PatientGuidance.App.Controls
 
             this.SelectionChanged += CustomDatePicker_SelectionChanged;
 
-            Headers = new ObservableCollection<string> {"Month", "Day", "Year"};
-            HeaderText = "Date Picker";
+            Headers = new ObservableCollection<string> {"חודש", "יום", "שנה"};
+            HeaderText = "בחירת תאריך";
             this.ColumnHeaderText = Headers;
-
 
             ShowFooter = true;
             ShowHeader = true;

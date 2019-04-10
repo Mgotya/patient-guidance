@@ -1,4 +1,5 @@
-﻿using Prism;
+﻿using PatientGuidance.App.Services;
+using Prism;
 using Prism.Ioc;
 using PatientGuidance.App.ViewModels;
 using PatientGuidance.App.Views;
@@ -32,8 +33,11 @@ namespace PatientGuidance.App
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
+            containerRegistry.Register<IQuestionProvider, TempQuestionProvider>();
+
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
             containerRegistry.RegisterForNavigation<ColonoQuestionPage, ColonoQuestionPageViewModel>();
+            containerRegistry.RegisterForNavigation<StateContainerPage, StateContainerPageViewModel>();
         }
     }
 }

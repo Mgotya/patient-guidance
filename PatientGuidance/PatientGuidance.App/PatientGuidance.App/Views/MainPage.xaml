@@ -20,18 +20,22 @@
 
         <StackLayout Grid.Row="1">
             <Button Clicked="Button_Clicked" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="200"
-                    Text="Show Picker" />
+                    Text="{Binding DateSelectionLabel}" />
 
             <controls:CustomDatePicker x:Name="date" ColumnHeaderHeight="40" VerticalOptions="Center"
                     HorizontalOptions="Center" PickerHeight="400" PickerMode="Dialog" PickerWidth="300"
-                    SelectedItem="{Binding StartDate}" OkButtonClicked="ApproveDateEvent"/>
+                    SelectedItem="{Binding SelectedDate}" OkButtonClicked="ApproveDateEvent"/>
+
+            <Label Text="{Binding SelectedDateValue}"/>
 
             <Button Clicked="Time_Clicked" VerticalOptions="Center" WidthRequest="200" HorizontalOptions="Center"
-                Text="Show TimePicker" />
+                Text="{Binding TimeSelectionLabel}" />
 
             <controls:CustomTimePicker x:Name="time" ColumnHeaderHeight="40" HorizontalOptions="Center"
                 VerticalOptions="Center" PickerHeight="400" PickerMode="Dialog"  PickerWidth="300" 
                 SelectedItem="{Binding SelectedTime}" OkButtonClicked="ApproveTime"/>
+
+            <Label Text="{Binding SelectedTimeValue}"></Label>
         </StackLayout>
 
         <buttons:SfButton Grid.Row="2" Text="{Binding DoneLabel}" Command="{Binding Done}"/>

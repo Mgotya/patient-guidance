@@ -1326,6 +1326,11 @@ namespace PatientGuidance.App.Droid
 			global::Syncfusion.Buttons.XForms.Android.Resource.Styleable.ViewStubCompat_android_layout = global::PatientGuidance.App.Droid.Resource.Styleable.ViewStubCompat_android_layout;
 			global::Syncfusion.XForms.Android.Core.Resource.Drawable.inputlayout_togglecollapseicon = global::PatientGuidance.App.Droid.Resource.Drawable.inputlayout_togglecollapseicon;
 			global::Syncfusion.XForms.Android.Core.Resource.Drawable.inputlayout_togglevisibleicon = global::PatientGuidance.App.Droid.Resource.Drawable.inputlayout_togglevisibleicon;
+			global::Syncfusion.ListView.XForms.Android.Resource.Drawable.inputlayout_togglecollapseicon = global::PatientGuidance.App.Droid.Resource.Drawable.inputlayout_togglecollapseicon;
+			global::Syncfusion.ListView.XForms.Android.Resource.Drawable.inputlayout_togglevisibleicon = global::PatientGuidance.App.Droid.Resource.Drawable.inputlayout_togglevisibleicon;
+			global::Syncfusion.ListView.XForms.Android.Resource.String.ApplicationName = global::PatientGuidance.App.Droid.Resource.String.ApplicationName;
+			global::Syncfusion.ListView.XForms.Android.Resource.String.Hello = global::PatientGuidance.App.Droid.Resource.String.Hello;
+			global::Syncfusion.ListView.XForms.Android.Resource.String.Load_More = global::PatientGuidance.App.Droid.Resource.String.Load_More;
 			global::Com.Syncfusion.SfPicker.Resource.Attribute.pickerBackgroundColor = global::PatientGuidance.App.Droid.Resource.Attribute.pickerBackgroundColor;
 			global::Com.Syncfusion.SfPicker.Resource.Attribute.pickerBorderColor = global::PatientGuidance.App.Droid.Resource.Attribute.pickerBorderColor;
 			global::Com.Syncfusion.SfPicker.Resource.Attribute.pickerColumnHeaderBackgroundColor = global::PatientGuidance.App.Droid.Resource.Attribute.pickerColumnHeaderBackgroundColor;
@@ -7601,6 +7606,15 @@ namespace PatientGuidance.App.Droid
 		
 		public partial class String
 		{
+			
+			// aapt resource value: 0x7f0a003d
+			public const int ApplicationName = 2131361853;
+			
+			// aapt resource value: 0x7f0a003c
+			public const int Hello = 2131361852;
+			
+			// aapt resource value: 0x7f0a003e
+			public const int Load_More = 2131361854;
 			
 			// aapt resource value: 0x7f0a0015
 			public const int abc_action_bar_home_description = 2131361813;
