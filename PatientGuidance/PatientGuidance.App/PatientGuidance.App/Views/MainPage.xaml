@@ -6,7 +6,7 @@
 
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
         <Label Text="Welcome to Xamarin Forms and Prism!" />
-        <Button Command="{Binding Excute}" Text="djfgsd"></Button>
+        <Button Command="{Binding Excute}" Text="djfgsd" ></Button>
     </StackLayout>
 
 </ContentPage>
