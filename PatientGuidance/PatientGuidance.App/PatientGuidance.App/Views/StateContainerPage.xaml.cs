@@ -42,7 +42,7 @@ namespace PatientGuidance.App.Views
                                 Height = GridLength.Auto
                             }
                         };
-                        var contet
+                        
                         tabItems.Add(new SfTabItem
                         {
                             Title = c.Title,
