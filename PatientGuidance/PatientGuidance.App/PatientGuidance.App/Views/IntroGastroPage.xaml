@@ -25,7 +25,8 @@
         </StackLayout>
 
 
-        <buttons:SfButton Command="{Binding Done}" BackgroundColor="{StaticResource btn_background}" Text="בוא נתחיל" Margin="30" Grid.Row="1"/>
+        <buttons:SfButton Command="{Binding Done}" BackgroundColor="{StaticResource btn_background}" Text="בוא נתחיל" Margin="30" HeightRequest="100" Grid.Row="1"
+                          FontSize="20"/>
     </Grid>
 
 </ContentPage>
