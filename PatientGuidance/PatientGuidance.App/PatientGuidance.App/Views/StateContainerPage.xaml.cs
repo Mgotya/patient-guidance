@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using PatientGuidance.App.Common;
 using PatientGuidance.App.ViewModels;
@@ -171,10 +172,18 @@ namespace PatientGuidance.App.Views
                     IsVisible = false
                 };
 
+                list2.SelectionChanged += List2_SelectionChanged;
+
                 _currentGrid.Children.Add(list2, 0, 1);
             }
 
             return _currentGrid;
+        }
+
+        private void List2_SelectionChanged(object sender, ItemSelectionChangedEventArgs e)
+        {
+            var subCard = _ctx.Cards[2].SubCards[1].SubCards[0].ImagesLink[0];
+            Device.OpenUri(new Uri(subCard));
         }
 
         private void SegmentedControl_SelectionChanged(object sender, Syncfusion.XForms.Buttons.SelectionChangedEventArgs e)
