@@ -8,17 +8,20 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="100"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
 
-        <StackLayout Orientation="Horizontal" Grid.Row="0">
-            <buttons:SfButton Text="{Binding BurnLabel}" Command="{Binding BurnFlow}"/>
-            <buttons:SfButton Text="{Binding ColoLabel}" Command="{Binding ColoFlow}"/>
+        <StackLayout Orientation="Horizontal" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center" Margin="10">
+            <buttons:SfButton Text="{Binding BurnLabel}" Command="{Binding BurnFlow}" 
+                              BackgroundColor="{Binding BurnColor}" WidthRequest="100" Margin="10"/>
+            <buttons:SfButton Text="{Binding ColoLabel}" Command="{Binding ColoFlow}" 
+                              BackgroundColor="{Binding ColoColor}" WidthRequest="100" Margin="10"/>
         </StackLayout>
 
-        <StackLayout Grid.Row="1">
+        <StackLayout Grid.Row="1" IsVisible="{Binding IsColo}" HorizontalOptions="Center" VerticalOptions="Center" Margin="10">
             <Button Clicked="Button_Clicked" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="200"
                     Text="{Binding DateSelectionLabel}" />
 
@@ -38,7 +41,9 @@
             <Label Text="{Binding SelectedTimeValue}"></Label>
         </StackLayout>
 
-        <buttons:SfButton Grid.Row="2" Text="{Binding DoneLabel}" Command="{Binding Done}"/>
+        <StackLayout Grid.Row="3" HorizontalOptions="Center" VerticalOptions="Center" Margin="10">
+            <buttons:SfButton Text="{Binding DoneLabel}" Command="{Binding Done}" BackgroundColor="{StaticResource btn_background}"/>
+        </StackLayout>
 
     </Grid>
 

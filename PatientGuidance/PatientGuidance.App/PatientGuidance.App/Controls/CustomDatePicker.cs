@@ -28,7 +28,6 @@ namespace PatientGuidance.App.Controls
             Year = new ObservableCollection<object>();
             PopulateDateCollection();
             this.ItemsSource = Date;
-
             this.SelectionChanged += CustomDatePicker_SelectionChanged;
 
             Headers = new ObservableCollection<string> {"חודש", "יום", "שנה"};
@@ -51,7 +50,7 @@ namespace PatientGuidance.App.Controls
                 Month.Add(CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(i).Substring(0, 3));
             }
 
-            for (int i = 1990; i < 2050; i++)
+            for (int i = DateTime.Now.Year; i < 2050; i++)
             {
                 Year.Add(i.ToString());
             }
