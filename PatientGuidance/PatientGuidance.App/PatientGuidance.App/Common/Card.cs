@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace PatientGuidance.App.Common
 {
@@ -8,6 +6,9 @@ namespace PatientGuidance.App.Common
     {
         public CardType Type { get; set; }
         public string Title { get; set; }
+
+        public Dictionary<string,List<string>> Questions { get; set; }
+
         public string Content { get; set; }
         public string SubContent { get; set; }
     }
@@ -15,6 +16,9 @@ namespace PatientGuidance.App.Common
     public enum CardType
     {
         Default,
-        ComplexGastro
+        GastroQuestions,
+        GastroYesNo,
+        ComplexGastro,
+        GastroTimeLine
     }
 }
