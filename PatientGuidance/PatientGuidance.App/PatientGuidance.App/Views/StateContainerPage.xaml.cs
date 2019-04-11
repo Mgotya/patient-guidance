@@ -1,5 +1,6 @@
 ﻿using PatientGuidance.App.Common;
 using PatientGuidance.App.ViewModels;
+using Syncfusion.XForms.Buttons;
 using Syncfusion.XForms.TabView;
 using Xamarin.Forms;
 
@@ -39,6 +40,27 @@ namespace PatientGuidance.App.Views
                         break;
                 }
             }
+
+            var lastone = new Grid
+            {
+                Margin = 10,
+            };
+            lastone.Children.Add(new SfButton
+            {
+                Text = "יציאה",
+                Command = _ctx.CompleateCommand,
+                BackgroundColor = Color.CornflowerBlue,
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.End,
+                Margin = 10,
+                WidthRequest = 100
+            });
+
+            tabItems.Add(new SfTabItem
+            {
+                Title = "סיום",
+                Content = lastone
+            });
             tabView.Items = tabItems;
             this.Content = tabView;
             

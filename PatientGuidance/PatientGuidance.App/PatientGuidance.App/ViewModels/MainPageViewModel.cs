@@ -99,6 +99,13 @@ namespace PatientGuidance.App.ViewModels
 
         #endregion
 
+        public override async void OnNavigatedTo(INavigationParameters parameters)
+        {
+            if (Settings.IsLogIn)
+                await NavigationService.NavigateAsync("StateContainerPage");
+
+        }
+
         public void DateSelectedApprove()
         {
             var a = $"{SelectedDate[0]} {SelectedDate[1]},{SelectedDate[2]}";
