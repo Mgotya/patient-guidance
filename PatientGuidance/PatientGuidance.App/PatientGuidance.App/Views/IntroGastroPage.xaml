@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="PatientGuidance.App.Views.IntroGastroPage">
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackLayout Grid.Row="0" Margin="0,20,30,0">
+            <Label Text="ישראל היקר," FontSize="25" Margin="0,0,0,20"/>
+            <Label Text="אפליקציה זו נועדה לשפר את מוכנותך לבדיקה ולהקל על התהליך" FontSize="22" Margin="10,0,0,0"/>
+            <Label Text="ידוע כי 25% מהבדיקות נכשלות עקב אי מילוי הוראות ההכנה לבדיקה." FontSize="22" Margin="10,0,0,0"/>
+            <Label Text="הכנה טובה של המטופל:" FontSize="20" Margin="0,0,0,10"/>
+            <Label Text="מקצרת את זמן הבבדיקה" Margin="0,0,10,0" FontSize="18"/>
+            <Label Text="מפחיתה את אי הנעימות מהבדיקה" Margin="0,0,10,0" FontSize="18"/>
+            <Label Text="מפחיתה את הסיכון לסיבוכים" Margin="0,0,10,0" FontSize="18"/>
+            <Label Text="משפרת את היכולת אבחנתית והטיפולית" Margin="0,0,10,0" FontSize="18"/>
+        </StackLayout>
+
+
+        <buttons:SfButton Command="{Binding Done}" BackgroundColor="{StaticResource btn_background}" Text="בוא נתחיל" Margin="30" Grid.Row="1"/>
+    </Grid>
+
+</ContentPage>

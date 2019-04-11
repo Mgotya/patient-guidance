@@ -32,7 +32,7 @@ namespace PatientGuidance.App.ViewModels
         {
             Settings.IsSpecial = Questions.Any(q => q.IsYesAnswer);
             //Settings.IsLogIn = true;
-            await NavigationService.NavigateAsync("StateContainerPage");
+            await NavigationService.NavigateAsync("IntroGastroPage");
         }
 
         public override async void OnNavigatingTo(INavigationParameters parameters)

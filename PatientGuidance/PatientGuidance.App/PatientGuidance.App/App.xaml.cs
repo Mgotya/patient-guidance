@@ -40,6 +40,7 @@ namespace PatientGuidance.App
             containerRegistry.RegisterForNavigation<ColonoQuestionPage, ColonoQuestionPageViewModel>();
             containerRegistry.RegisterForNavigation<StateContainerPage, StateContainerPageViewModel>();
             containerRegistry.RegisterForNavigation<VideoPage, VideoPageViewModel>();
+            containerRegistry.RegisterForNavigation<IntroGastroPage, IntroGastroPageViewModel>();
         }
     }
 }
