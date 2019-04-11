@@ -17,6 +17,7 @@ namespace PatientGuidance.App.Common
         public string MovieLink { get; set; }
         public List<string> ImagesLink { get; set; }
         public string PdfFileLink { get; set; }
+        public string WebPageLink { get; set; }
     }
 
     public enum CardType

@@ -47,7 +47,7 @@ namespace PatientGuidance.App.Common
 
         public static string DataMaternityGuidanceCardsgUrl
         {
-            get => AppSettings.GetValueOrDefault(nameof(DataMaternityGuidanceCardsgUrl), "https://api.myjson.com/bins/bchgg");
+            get => AppSettings.GetValueOrDefault(nameof(DataMaternityGuidanceCardsgUrl), "https://api.myjson.com/bins/i5om8");
             //set => AppSettings.AddOrUpdateValue(nameof(IsLogIn), value);
         }
     }
