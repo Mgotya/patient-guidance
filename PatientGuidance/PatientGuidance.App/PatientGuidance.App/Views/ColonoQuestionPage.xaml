@@ -3,22 +3,41 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              xmlns:xForms="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:generic="clr-namespace:System.Collections.Generic;assembly=netstandard"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="PatientGuidance.App.Views.ColonoQuestionPage">
-  
+
 
     <StackLayout>
-        <xForms:SfListView ItemsSource="{Binding Questions}" >
+        <xForms:SfListView ItemsSource="{Binding Questions}" ItemSize="200" ItemSpacing="10" SelectionBackgroundColor="Transparent">
             <xForms:SfListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid>
-                        <Label Text="{Binding Content}"/>
-                    </Grid>
+
+                    <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="{Binding Content}" FontSize="25"/>
+                        <buttons:SfSegmentedControl  Margin="10"
+                                                    SelectionTextColor="White"
+                                                    HeightRequest="60"
+                                                    VisibleSegmentsCount="2"
+                                                    Color="Transparent" 
+                                                    BorderColor="#929292"
+                                                    SelectedIndex="{Binding SelectedIndex}"
+                                                    FontColor="#929292"
+                                                    BackgroundColor="Transparent">
+                            <generic:List x:TypeArguments="x:String">
+                                <x:String>כן</x:String>
+                                <x:String>לא</x:String>
+                            </generic:List>
+                        </buttons:SfSegmentedControl>
+                    </StackLayout>
+
+
                 </DataTemplate>
             </xForms:SfListView.ItemTemplate>
         </xForms:SfListView>
 
-        <Button Command="{Binding Next}" Text="{Binding NextLabel}"/>
+        <buttons:SfButton Command="{Binding Next}" Text="{Binding NextLabel}" BackgroundColor="{StaticResource btn_background}" Margin="10"/>
     </StackLayout>
 
 </ContentPage>

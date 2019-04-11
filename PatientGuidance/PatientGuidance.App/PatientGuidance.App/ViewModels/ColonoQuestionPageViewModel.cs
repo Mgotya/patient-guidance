@@ -39,7 +39,8 @@ namespace PatientGuidance.App.ViewModels
         {
             var enumerable = await _questionProvider.GetGastroPrerequisiteQuestionsAsync();
 
-            FunctionalExtensions.ToList<Question>(enumerable)
+            enumerable
+                .ToList()
                 .ForEach(q => Questions.Add(new QuestionViewModel(q)));
         }
     }
@@ -49,11 +50,13 @@ namespace PatientGuidance.App.ViewModels
     {
         private readonly Question _question;
         public string Content => _question.Content;
-        public bool IsYesAnswer { get; set; }
+        public bool IsYesAnswer => SelectedIndex == 0;
+        public int SelectedIndex { get; set; }
 
         public QuestionViewModel(Question question)
         {
             _question = question;
+            SelectedIndex = 1;
         }
     }
 }
