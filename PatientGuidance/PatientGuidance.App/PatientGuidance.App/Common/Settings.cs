@@ -21,6 +21,12 @@ namespace PatientGuidance.App.Common
             set => AppSettings.AddOrUpdateValue(nameof(IsSpecial), value);
         }
 
+        public static bool IsGastro
+        {
+            get => AppSettings.GetValueOrDefault(nameof(IsGastro), false);
+            set => AppSettings.AddOrUpdateValue(nameof(IsGastro), value);
+        }
+
         public static DateTime SelectedDate
         {
             get => AppSettings.GetValueOrDefault(nameof(SelectedDate), DateTime.Today);

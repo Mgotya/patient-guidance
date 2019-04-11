@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PatientGuidance.App.Common;
@@ -13,12 +14,35 @@ namespace PatientGuidance.App.Services
     internal class StaticCardsProvider : IInstructionCardsProvider
     {
         public Task<IEnumerable<Card>> GetRelevantCardsAsync()
-            => Task.Run(() => GetGastroDefaultTemplate());
+            => Task.Run(() =>
+            {
+                if (Settings.IsGastro)
+                {
+                    return Settings.IsSpecial ? GetGastroSpecialState() : GetGastroDefaultTemplate();
+                }
+
+                return GetBurnCards();
+            });
+
+        private IEnumerable<Card> GetBurnCards()
+        {
+            return Enumerable.Empty<Card>();
+        }
 
         private IEnumerable<Card> GetGastroDefaultTemplate()
         {
-            var cards = new List<Card>();
+            yield return FirstGastroCards();
+            yield return LastGastroCards();
+        }
 
+        private IEnumerable<Card> GetGastroSpecialState()
+        {
+            yield return FirstGastroCards();
+            yield return LastGastroCards();
+        }
+
+        private Card FirstGastroCards()
+        {
             var firstContent = new StringBuilder("האם נוטל תרופות לקרישת דם?");
             firstContent.AppendLine("לא");
             firstContent.AppendLine("כן-נא להתייעץ עם הרופא המטפל לגבי מועד הפסקת התרופה.");
@@ -34,7 +58,11 @@ namespace PatientGuidance.App.Services
                 SubContent = "יש לקבוע פגישה עם רופא המשפחה למרשם תרופות הכנה (פיקולוקס)"
             };
 
+            return firstCard;
+        }
 
+        private Card LastGastroCards()
+        {
             var lastContent = new StringBuilder("אין לאכול עד הבדיקה עצמה");
             lastContent.AppendLine("מותר לשתות: מים, נוזלים צלולים (מרק, מיץ דליל, תה)");
 
@@ -42,7 +70,7 @@ namespace PatientGuidance.App.Services
             sub.AppendLine("להביא מלווה (אין לנהוג 12 שעות לאחר הבדיקה)");
             sub.AppendLine("תעודה מזהה");
             sub.AppendLine("מכתב הפניה");
-            
+
             var last = new Card
             {
                 Title = Settings.SelectedDate.ToShortDateString(),
@@ -51,11 +79,7 @@ namespace PatientGuidance.App.Services
                 SubContent = sub.ToString()
             };
 
-            cards.Add(firstCard);
-            cards.Add(last);
-
-
-            return cards;
+            return last;
         }
     }
 }

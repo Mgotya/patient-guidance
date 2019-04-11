@@ -91,6 +91,8 @@ namespace PatientGuidance.App.ViewModels
 
         private async void OnSelectionCompleated()
         {
+            Settings.IsGastro = IsColo;
+
             if(IsColo)
                 await NavigationService.NavigateAsync("ColonoQuestionPage");
             else
