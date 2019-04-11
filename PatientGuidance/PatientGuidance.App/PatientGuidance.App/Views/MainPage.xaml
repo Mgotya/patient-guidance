@@ -8,17 +8,17 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="150"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="20"/>
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
 
         <StackLayout Orientation="Horizontal" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center" Margin="10">
-            <buttons:SfButton Text="{Binding BurnLabel}" Command="{Binding BurnFlow}" 
-                              BackgroundColor="{Binding BurnColor}" WidthRequest="100" Margin="10"/>
-            <buttons:SfButton Text="{Binding ColoLabel}" Command="{Binding ColoFlow}" 
-                              BackgroundColor="{Binding ColoColor}" WidthRequest="100" Margin="10"/>
+            <buttons:SfButton BackgroundImage="burn.png" Command="{Binding BurnFlow}" 
+                              BackgroundColor="{Binding BurnColor}" WidthRequest="150" Margin="10"/>
+            <buttons:SfButton BackgroundImage="gastro.png" Command="{Binding ColoFlow}" 
+                              BackgroundColor="{Binding ColoColor}" WidthRequest="150" Margin="10"/>
         </StackLayout>
 
         <StackLayout Grid.Row="1" IsVisible="{Binding IsColo}" HorizontalOptions="Center" VerticalOptions="Center" Margin="10">

@@ -8,23 +8,28 @@ using Prism.Navigation;
 
 namespace PatientGuidance.App.ViewModels
 {
-	public class StateContainerPageViewModel : ViewModelBase
-	{
+    public class StateContainerPageViewModel : ViewModelBase
+    {
         private readonly IInstructionCardsProvider _provider;
         public Action OnReady { get; set; } = () => { };
         public ObservableCollection<Card> Cards { get; set; }
         public DelegateCommand CompleateCommand { get; set; }
 
-        public StateContainerPageViewModel(INavigationService navigationService, IInstructionCardsProvider provider) 
+        public StateContainerPageViewModel(INavigationService navigationService, IInstructionCardsProvider provider)
             : base(navigationService)
         {
             _provider = provider;
             Cards = new ObservableCollection<Card>();
             CompleateCommand = new DelegateCommand(async () =>
             {
-                Settings.IsLogIn = false;
+                //Settings.IsLogIn = false;
                 await NavigationService.NavigateAsync("myapp:///NavigationPage/MainPage");
             });
+        }
+
+        public async void ShowVideo(string url)
+        {
+            await NavigationService.NavigateAsync("VideoPage", new NavigationParameters {{"url", url}});
         }
 
         public override async void OnNavigatedTo(INavigationParameters parameters)

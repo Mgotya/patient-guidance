@@ -9,11 +9,11 @@ namespace PatientGuidance.App.Common
         private static ISettings AppSettings =>
             CrossSettings.Current;
 
-        public static bool IsLogIn
-        {
-            get => AppSettings.GetValueOrDefault(nameof(IsLogIn), false);
-            set => AppSettings.AddOrUpdateValue(nameof(IsLogIn), value);
-        }
+        //public static bool IsLogIn
+        //{
+        //    get => AppSettings.GetValueOrDefault(nameof(IsLogIn), false);
+        //    set => AppSettings.AddOrUpdateValue(nameof(IsLogIn), value);
+        //}
 
         public static bool IsSpecial
         {

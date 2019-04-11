@@ -103,8 +103,8 @@ namespace PatientGuidance.App.ViewModels
 
         public override async void OnNavigatedTo(INavigationParameters parameters)
         {
-            if (Settings.IsLogIn)
-                await NavigationService.NavigateAsync("StateContainerPage");
+            //if (Settings.IsLogIn)
+            //    await NavigationService.NavigateAsync("StateContainerPage");
 
         }
 

@@ -31,7 +31,7 @@ namespace PatientGuidance.App.Views
 
         private void Loaded()
         {
-            
+
             var tabItems = new TabItemCollection();
             foreach (var c in _ctx.Cards)
             {
@@ -75,11 +75,11 @@ namespace PatientGuidance.App.Views
                 }
             }
 
-            tabItems.Add(new SfTabItem
-            {
-                Title = "סיום",
-                Content = LastStep()
-            });
+            //tabItems.Add(new SfTabItem
+            //{
+            //    Title = "סיום",
+            //    Content = LastStep()
+            //});
             _tabView.Items = tabItems;
             this.Content = _tabView;
 
@@ -154,7 +154,7 @@ namespace PatientGuidance.App.Views
                     })
                 };
 
-                _currentGrid.Children.Add(list1,0,1);
+                _currentGrid.Children.Add(list1, 0, 1);
 
                 var list2 = new SfListView
                 {
@@ -183,7 +183,8 @@ namespace PatientGuidance.App.Views
         private void List2_SelectionChanged(object sender, ItemSelectionChangedEventArgs e)
         {
             var subCard = _ctx.Cards[2].SubCards[1].SubCards[0].ImagesLink[0];
-            Device.OpenUri(new Uri(subCard));
+            //Device.OpenUri(new Uri(subCard));
+            _ctx.ShowVideo(subCard);
         }
 
         private void SegmentedControl_SelectionChanged(object sender, Syncfusion.XForms.Buttons.SelectionChangedEventArgs e)

@@ -31,7 +31,7 @@ namespace PatientGuidance.App.ViewModels
         private async void MoveToNextPage()
         {
             Settings.IsSpecial = Questions.Any(q => q.IsYesAnswer);
-            Settings.IsLogIn = true;
+            //Settings.IsLogIn = true;
             await NavigationService.NavigateAsync("StateContainerPage");
         }
 

@@ -91,6 +91,36 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
+      "Plugin.MediaManager/0.4.5": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Android.Support.v4": "25.3.1",
+          "Xamarin.Android.Support.v7.AppCompat": "25.3.1"
+        },
+        "compile": {
+          "lib/MonoAndroid/Plugin.MediaManager.Abstractions.dll": {},
+          "lib/MonoAndroid/Plugin.MediaManager.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid/Plugin.MediaManager.Abstractions.dll": {},
+          "lib/MonoAndroid/Plugin.MediaManager.dll": {}
+        }
+      },
+      "Plugin.MediaManager.Forms/0.4.5": {
+        "type": "package",
+        "dependencies": {
+          "Plugin.MediaManager": "0.4.5",
+          "Xamarin.Forms": "2.3.4.247"
+        },
+        "compile": {
+          "lib/MonoAndroid/Plugin.MediaManager.Forms.Android.dll": {},
+          "lib/MonoAndroid/Plugin.MediaManager.Forms.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid/Plugin.MediaManager.Forms.Android.dll": {},
+          "lib/MonoAndroid/Plugin.MediaManager.Forms.dll": {}
+        }
+      },
       "Prism.Autofac.Forms/7.1.0.431": {
         "type": "package",
         "dependencies": {
@@ -1042,6 +1072,7 @@
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "Newtonsoft.Json": "12.0.1",
+          "Plugin.MediaManager.Forms": "0.4.5",
           "Prism.Autofac.Forms": "7.1.0.431",
           "Syncfusion.Licensing": "16.4.0.54",
           "Syncfusion.Xamarin.Buttons": "16.4.0.54",
@@ -1177,6 +1208,63 @@
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
         "newtonsoft.json.12.0.1.nupkg.sha512",
         "newtonsoft.json.nuspec"
+      ]
+    },
+    "Plugin.MediaManager/0.4.5": {
+      "sha512": "cpTcuGY+HUDhz2spS4jlB8zmlVsULzbR+YYcxXanKnARUmXO7L66gC+MiJYhVfOEhg96EKYPGEGPuIPtzST3+A==",
+      "type": "package",
+      "path": "plugin.mediamanager/0.4.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid/Plugin.MediaManager.Abstractions.dll",
+        "lib/MonoAndroid/Plugin.MediaManager.Abstractions.xml",
+        "lib/MonoAndroid/Plugin.MediaManager.dll",
+        "lib/MonoAndroid/Plugin.MediaManager.xml",
+        "lib/Xamarin.Mac/Plugin.MediaManager.Abstractions.dll",
+        "lib/Xamarin.Mac/Plugin.MediaManager.Abstractions.xml",
+        "lib/Xamarin.Mac/Plugin.MediaManager.dll",
+        "lib/Xamarin.iOS10/Plugin.MediaManager.Abstractions.dll",
+        "lib/Xamarin.iOS10/Plugin.MediaManager.Abstractions.xml",
+        "lib/Xamarin.iOS10/Plugin.MediaManager.dll",
+        "lib/Xamarin.iOS10/Plugin.MediaManager.xml",
+        "lib/Xamarin.tvOS/Plugin.MediaManager.Abstractions.dll",
+        "lib/Xamarin.tvOS/Plugin.MediaManager.Abstractions.xml",
+        "lib/Xamarin.tvOS/Plugin.MediaManager.dll",
+        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Plugin.MediaManager.Abstractions.dll",
+        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Plugin.MediaManager.Abstractions.xml",
+        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Plugin.MediaManager.dll",
+        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Plugin.MediaManager.xml",
+        "lib/uap10.0/Plugin.MediaManager.Abstractions.dll",
+        "lib/uap10.0/Plugin.MediaManager.Abstractions.xml",
+        "lib/uap10.0/Plugin.MediaManager.XML",
+        "lib/uap10.0/Plugin.MediaManager.dll",
+        "lib/uap10.0/Plugin.MediaManager.pdb",
+        "lib/uap10.0/Properties/Plugin.MediaManager.UWP.rd.xml",
+        "plugin.mediamanager.0.4.5.nupkg.sha512",
+        "plugin.mediamanager.nuspec"
+      ]
+    },
+    "Plugin.MediaManager.Forms/0.4.5": {
+      "sha512": "djWih2/cBd8Sypg+TkDJ2eEQYUGtK7amFvPBlmRVeyetAIhMtPsrJkytvSRnVgYml1ArJvN6f33dc5U3U2avuA==",
+      "type": "package",
+      "path": "plugin.mediamanager.forms/0.4.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid/Plugin.MediaManager.Forms.Android.dll",
+        "lib/MonoAndroid/Plugin.MediaManager.Forms.dll",
+        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Plugin.MediaManager.Forms.dll",
+        "lib/uap10.0/Plugin.MediaManager.Forms.UWP.dll",
+        "lib/uap10.0/Plugin.MediaManager.Forms.UWP.pdb",
+        "lib/uap10.0/Plugin.MediaManager.Forms.UWP.pri",
+        "lib/uap10.0/Plugin.MediaManager.Forms.dll",
+        "lib/uap10.0/Plugin.MediaManager.Forms.pdb",
+        "lib/uap10.0/Plugin.MediaManager.XamarinForms.UWP.rd.xml",
+        "lib/xamarinios/Plugin.MediaManager.Forms.dll",
+        "lib/xamarinios/Plugin.MediaManager.Forms.iOS.dll",
+        "plugin.mediamanager.forms.0.4.5.nupkg.sha512",
+        "plugin.mediamanager.forms.nuspec"
       ]
     },
     "Prism.Autofac.Forms/7.1.0.431": {
@@ -4778,6 +4866,7 @@
   "projectFileDependencyGroups": {
     "MonoAndroid,Version=v8.1": [
       "PatientGuidance.App >= 1.0.0",
+      "Plugin.MediaManager.Forms >= 0.4.5",
       "Prism.Autofac.Forms >= 7.1.0.431",
       "Syncfusion.Licensing >= 16.4.0.54",
       "Syncfusion.Xamarin.Buttons >= 16.4.0.54",
@@ -4830,6 +4919,10 @@
     "frameworks": {
       "monoandroid81": {
         "dependencies": {
+          "Plugin.MediaManager.Forms": {
+            "target": "Package",
+            "version": "[0.4.5, )"
+          },
           "Prism.Autofac.Forms": {
             "target": "Package",
             "version": "[7.1.0.431, )"
