@@ -1,32 +1,36 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Net.Http;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using PatientGuidance.App.Common;
-using Xamarin.Forms;
 
 namespace PatientGuidance.App.Services
 {
     public interface IInstructionCardsProvider
     {
         Task<IEnumerable<Card>> GetRelevantCardsAsync();
+        Task<IEnumerable<Card>> GetBurnCardsAsync();
     }
 
     internal class StaticCardsProvider : IInstructionCardsProvider
     {
         public Task<IEnumerable<Card>> GetRelevantCardsAsync()
-            => Task.Run(() =>
-            {
-                if (Settings.IsGastro)
-                {
-                    return Settings.IsSpecial ? GetGastroSpecialState() : GetGastroDefaultTemplate();
-                }
+            => Task.Run(() => Settings.IsSpecial ? GetGastroSpecialState() : GetGastroDefaultTemplate());
 
-                return GetBurnCards();
-            });
-
-        private IEnumerable<Card> GetBurnCards()
+        public async Task<IEnumerable<Card>> GetBurnCardsAsync()
         {
+            var uri = new Uri(Settings.DataMaternityGuidanceCardsgUrl);
+            HttpClient myClient = new HttpClient();
+            var response = await myClient.GetAsync(uri);
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                var Items = JsonConvert.DeserializeObject<List<Card>>(content);
+                Console.WriteLine("");
+                return Items;
+            }
             return Enumerable.Empty<Card>();
         }
 
@@ -109,7 +113,7 @@ namespace PatientGuidance.App.Services
             return new Card
             {
                 Title = Settings.SelectedDate.ToString("dd-MM"),
-                Type = CardType.Default,
+                Type = CardType.GastroDefault,
                 Content = "אין לאכול עד לבדיקה, ניתן לשתות מים או כל נוזל צלול אחר כמו מרק צח, מיץ צלול, תה עם סוכר עד שלוש שעות לפני הבדיקה",
                 Questions = new Dictionary<string, List<string>>
                 {

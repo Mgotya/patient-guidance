@@ -45,5 +45,10 @@ namespace PatientGuidance.App.Common
             set => AppSettings.AddOrUpdateValue(nameof(SelectedMinutes), value);
         }
 
+        public static string DataMaternityGuidanceCardsgUrl
+        {
+            get => AppSettings.GetValueOrDefault(nameof(DataMaternityGuidanceCardsgUrl), "https://api.myjson.com/bins/bchgg");
+            //set => AppSettings.AddOrUpdateValue(nameof(IsLogIn), value);
+        }
     }
 }

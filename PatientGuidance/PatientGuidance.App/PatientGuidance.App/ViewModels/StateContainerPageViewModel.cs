@@ -29,7 +29,7 @@ namespace PatientGuidance.App.ViewModels
 
         public override async void OnNavigatedTo(INavigationParameters parameters)
         {
-            IEnumerable<Card> enumerable = await _provider.GetRelevantCardsAsync();
+            IEnumerable<Card> enumerable = Settings.IsGastro ? await _provider.GetRelevantCardsAsync() : await _provider.GetBurnCardsAsync();
             foreach (var card in enumerable)
             {
                 Cards.Add(card);

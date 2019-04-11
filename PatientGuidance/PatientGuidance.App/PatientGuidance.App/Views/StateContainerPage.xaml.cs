@@ -32,7 +32,7 @@ namespace PatientGuidance.App.Views
             {
                 switch (c.Type)
                 {
-                    case CardType.Default:
+                    case CardType.GastroDefault:
                         tabItems.Add(new SfTabItem
                         {
                             Title = c.Title,
